@@ -8,32 +8,35 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
+import { useLogin } from './useLogin';
 
 function LoginScreen(): JSX.Element {
+  const { username, setUsername, password, setPassword, handleLogin } =
+    useLogin();
   return useMemo(() => {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.wrapper}>
           <TextInput
-            value="username"
-            // onChangeText={setUsername}
+            value={username as string}
+            onChangeText={setUsername}
             placeholder="Enter your username"
             style={styles.input}
           />
           <TextInput
-            value="password"
-            // onChangeText={setPassword}
+            value={password as string}
+            onChangeText={setPassword}
             placeholder="Enter your password"
             style={styles.input}
             secureTextEntry
           />
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity onPress={handleLogin} style={styles.button}>
             <Text style={styles.textBtn}>Login</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
     );
-  }, []);
+  }, [handleLogin, password, setPassword, setUsername, username]);
 }
 
 const styles = StyleSheet.create({
