@@ -1,6 +1,6 @@
 {
   "name": "@hiucuockhanh/react-native-login-module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "React native login module",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
