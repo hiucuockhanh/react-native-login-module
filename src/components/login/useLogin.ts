@@ -9,6 +9,8 @@ export const useLogin = () => {
 
   const handleLogin = () => {
     if (username === 'User' && password === '123456') {
+      console.log('Username: ' + username);
+      console.log('Password: ' + password);
       dispatch(login(username));
     }
   };

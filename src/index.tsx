@@ -1,8 +1,18 @@
+import React from 'react';
+import { Provider } from 'react-redux';
 import LoginScreen from './components/login';
-import auth from './redux/authSlice';
-import store from './redux/store';
-export function multiply(a: number, b: number): Promise<number> {
+import authSlice from './redux/authSlice';
+import { store } from './redux/store';
+function multiply(a: number, b: number): Promise<number> {
   return Promise.resolve(a * b);
 }
 
-export { LoginScreen, auth, store };
+const LoginProvider = () => {
+  return (
+    <Provider store={store}>
+      <LoginScreen />
+    </Provider>
+  );
+};
+
+export { LoginProvider, LoginScreen, authSlice, multiply, store };
